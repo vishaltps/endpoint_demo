@@ -1,0 +1,1 @@
+VALID_VERBS = %w[GET POST PATCH DELETE].freeze
