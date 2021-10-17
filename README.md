@@ -42,7 +42,15 @@ rspec spec
 
 ## Create an endpoint
 
-### Request
+#### Arguments
+
+name | Type | Description
+------------ | ------------- | -------------
+verb | String | it should be http verb for request. Expected values are `GET, POST, PATCH, DELETE`.
+path | String | it can be any valid string, it should starts with `/`. For instance, '/api/v1/greetings'
+response | Json | it should be json object which must contain the code attribute with integer value. You can pass code, headers and body attributes in response object. If the response schema is invalid, it won't create the endpoint. If you have multiple headers you need to separate it with comma(','). sample value for response object is `{ "response": { "code": 200, "headers": {"X-ComanyName-Api-Version": "V1", "X-DUMMY-KEY": "dummy_key"}, "body": {"message": "Hello, world" } } }`
+
+### Sample Request
 ```shell
 curl --location --request POST 'localhost:3000/api/v1/endpoints' \
 --header 'Content-Type: application/json' \
@@ -61,7 +69,7 @@ curl --location --request POST 'localhost:3000/api/v1/endpoints' \
 
 ```
 
-### Response
+### Sample Response
 
 ```
 {
@@ -92,14 +100,14 @@ curl --location --request POST 'localhost:3000/api/v1/endpoints' \
 
 ## List endpoints
 
-### Request
+### Sample Request
 
 ```shell
 curl --location --request GET 'localhost:3000/api/v1/endpoints'
 
 ```
 
-### Response
+### Sample Response
 
 ```
 {
@@ -126,14 +134,14 @@ curl --location --request GET 'localhost:3000/api/v1/endpoints'
 
 ## Get details of an endpoint
 
-### Request
+### Sample Request
 
 ```shell
 curl --location --request GET 'localhost:3000/api/v1/endpoints/:endpoint_id'
 
 ```
 
-### Response
+### Sample Response
 
 ```
 {
@@ -157,7 +165,7 @@ curl --location --request GET 'localhost:3000/api/v1/endpoints/:endpoint_id'
 
 ## Update endpoint
 
-### Request
+### Sample Request
 
 ```shell
 curl --location --request PUT 'localhost:3000/api/v1/endpoints/6' \
@@ -176,7 +184,7 @@ curl --location --request PUT 'localhost:3000/api/v1/endpoints/6' \
 '
 ```
 
-### Response
+### Sample Response
 
 ```
 {
@@ -207,7 +215,7 @@ curl --location --request PUT 'localhost:3000/api/v1/endpoints/6' \
 
 ## Remove an endpoint
 
-### Request
+### Sample Request
 
 ```shell
 curl --location --request DELETE 'localhost:3000/api/v1/endpoints/5'
